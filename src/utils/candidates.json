@@ -1,0 +1,100 @@
+{
+  "candidatesData": [
+    {
+      "name": "Ganganagar",
+      "candidates": [
+        {
+          "id": 1,
+          "name": "Suhasini Singh",
+          "party": "Independent",
+          "symbol": "/public/butterfly.webp",
+          "age": 45,
+          "education": "Graduate",
+          "photo": "/public/SuhasiniSingh.webp"
+        },
+        {
+          "id": 2,
+          "name": "Anita Sharma",
+          "party": "Bahujan Samaj Party (BSP)",
+          "symbol": "/public/elephant.jpg",
+          "age": 42,
+          "education": "Post Graduate",
+          "photo": "/public/AnitaSharma.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Amit Shah",
+          "party": "Bharatiya Janata Party (BJP)",
+          "symbol": "/public/lotus.webp",
+          "age": 38,
+          "education": "Graduate",
+          "photo": "/public/AmitShah.webp"
+        },
+        {
+          "id": 4,
+          "name": "Arvind Kejriwal",
+          "party": "Aam Aadmi Party (AAP)",
+          "symbol": "/public/broom.webp",
+          "age": 50,
+          "education": "Graduate",
+          "photo": "/public/ArvindKejriwal.webp"
+        },
+        {
+          "id": 5,
+          "name": "Meena Devi",
+          "party": "Indian National Congress (INC)",
+          "symbol": "/public/hand.png",
+          "age": 34,
+          "education": "Graduate",
+          "photo": "/public/MeenaDevi.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Ravi Verma",
+          "party": "Lok Janshakti Party (LJP)",
+          "symbol": "/public/bunglaw.png",
+          "age": 40,
+          "education": "Graduate",
+          "photo": "/public/RaviVerma.webp"
+        },
+        {
+          "id": 7,
+          "name": "Sitaram Yechuri",
+          "party": "Communist Party of India (CPI)",
+          "symbol": "/public/hammer_sickle.png",
+          "age": 48,
+          "education": "Post Graduate",
+          "photo": "/public/SitaRam.jpg"
+        },
+        {
+          "id": 8,
+          "name": "Jayant Choudhary",
+          "party": "Rashtriya Lok Dal (RLD)",
+          "symbol": "/public/handpump.png",
+          "age": 41,
+          "education": "Graduate",
+          "photo": "/public/JayantChoudhary.webp"
+        },
+        {
+          "id": 9,
+          "name":"Ajit Panwar",
+          "party": "Nationalist Congress Party (NCP)",
+          "symbol": "/public/clock.png",
+          "age": 37,
+          "education": "Graduate",
+          "photo": "/public/AjitPanwar.webp"
+        },
+        {
+          "id": 10,
+          "name": "Akhilesh Yadav",
+          "party": "Samajwadi Party (SP)",
+          "symbol": "/public/cycle.jpg",
+          "age": 52,
+          "education": "Post Graduate",
+          "photo": "/public/AkhileshYadav.jpg"
+        }
+      ]
+    }
+  ]
+}
+
