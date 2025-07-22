@@ -4,17 +4,32 @@ import './index.css'
 import App from './App.jsx'
 import {store} from '../src/store/globalStore'
 import {Provider} from 'react-redux' // this Provider acts like a wrapper -> iski help se ham <App/> me jitne bhi components hai -> unko store ka access denge
-import {createBrowserRouter,RouterProvider } from 'react-router-dom'
+import {BrowserRouter, createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Carousel from './pages/Carousel'
+import Entry from './pages/Entry'
+import Home from './pages/Home'
+import LokSabhaVoting from './pages/LokSabhaVoting'
+import SelectLocation from './pages/SelectLocation'
+import ChooseCandidates from './pages/ChooseCandidates'
+import Complete from './pages/Complete'
+import ThankYou from './pages/ThankYou'
 
 const router = createBrowserRouter(
   // createBrowserRouter is a function that takes an array of paths in arguement and returns a router object 
 
   [
     
-      {path:"/", element: <Carousel/>},
-      // {path: "/carousel", element: <Carousel/>}
+      {path:"/", element: <Entry/>},
+      {path: "/carousel", element: <Carousel/>},
+      {path: "/home", element:<Home/>},
+      {path: "/loksabhavoting", element:<LokSabhaVoting/>},
+      
+      {path: "/loksabhavoting/selectlocation", element: <SelectLocation/>},
+      {path: "/loksabhavoting/choosecandidate", element : <ChooseCandidates/>},
 
+      {path: "/loksabhavoting/complete", element: <Complete/>},
+      {path: "/loksabhavoting/thankyou", element: <ThankYou/>}
+      
     
 
   ]
@@ -29,6 +44,8 @@ createRoot(document.getElementById('root')).render(
 
     <RouterProvider router={router} />
     {/* basically, routes ki information sbhi components ko available kraane k liye we use RouteProvider */}
+
+ 
   
     </Provider>
   </StrictMode>,

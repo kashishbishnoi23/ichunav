@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Complete = () => {
   return (
@@ -10,9 +11,14 @@ const Complete = () => {
         <div className='text-2xl font-semibold'>Complete?</div>
         <div className='text-center text-gray-500'>Once you submit your vote, you cannot edit again.</div>
         <div className='text-center text-gray-500'>Are you sure you want to submit? </div>
-        
-        <button className='bg-amber-400  font-semibold  mt-2 text-white text-center py-2 px-8 rounded-full'>Yes</button>
-        <button className='bg-amber-100 text-amber-400  font-semibold  mt-2  text-center py-2 px-8 rounded-full'>Go back</button>
+         
+        <Link to="/loksabhavoting/thankyou">
+        <button className='bg-amber-400 cursor-pointer  font-semibold  mt-2 text-white text-center py-2 px-8 rounded-full'>Yes</button>
+        </Link>
+
+        <Link to="/loksabhavoting/choosecandidate">
+        <button className='bg-amber-100 cursor-pointer text-amber-400  font-semibold  mt-2  text-center py-2 px-8 rounded-full'>Go back</button>
+        </Link>
 
         </div>
 

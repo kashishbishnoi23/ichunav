@@ -2,6 +2,7 @@ import React from 'react'
 import constituencies from '../utils/constituencies.json'
 import { useSelector, useDispatch } from 'react-redux';
 import { setState, setCity } from '../features/VoteSlice'
+import Buttons from '../components/Buttons';
 
 const SelectLocation = () => {
 
@@ -33,11 +34,11 @@ const SelectLocation = () => {
 
 
             <div className='w-full border flex flex-col justify-around h-screen items-center'>
-                <div className='h-fit border px-7 py-12 rounded-2xl flex flex-col gap-7'>
+                <div className='h-fit border px-7 py-17 rounded-2xl flex flex-col gap-7'>
                     <div className='flex flex-col gap-3'>
                         <div className='text-xl max-sm:text-lg text-center font-semibold text-amber-500'>Select your State</div>
                         <select
-                            className='border shadow-md px-3 py-2 rounded-sm'
+                            className='border shadow-md px-2 py-2 rounded-sm'
                             value={selectedState}
                             onChange={handleStateChange}
                         >
@@ -70,14 +71,7 @@ const SelectLocation = () => {
                     </div>
                 </div>
 
-
-                <div className='flex justify-between w-full px-20'>
-                    <button className='text-gray-400 font-semibold shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-8 py-2 rounded-full'>Back</button>
-                    <button className='text-white bg-amber-500 px-8 py-2 rounded-full font-semibold'>Next</button>
-                </div>
-
-
-
+                <Buttons back="/loksabhavoting" next="/loksabhavoting/choosecandidate"/>
 
 
 
