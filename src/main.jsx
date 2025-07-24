@@ -13,13 +13,14 @@ import SelectLocation from './pages/SelectLocation'
 import ChooseCandidates from './pages/ChooseCandidates'
 import Complete from './pages/Complete'
 import ThankYou from './pages/ThankYou'
+import VerifyAadhar from './pages/VerifyAdhar'
 
 const router = createBrowserRouter(
   // createBrowserRouter is a function that takes an array of paths in arguement and returns a router object 
 
   [
     
-      {path:"/", element: <Entry/>},
+      {path:"/", element: <VerifyAadhar/>},
       {path: "/carousel", element: <Carousel/>},
       {path: "/home", element:<Home/>},
       {path: "/loksabhavoting", element:<LokSabhaVoting/>},
@@ -44,6 +45,8 @@ createRoot(document.getElementById('root')).render(
 
     <RouterProvider router={router} />
     {/* basically, routes ki information sbhi components ko available kraane k liye we use RouteProvider */}
+
+
 
  
   
