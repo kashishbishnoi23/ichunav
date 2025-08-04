@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from '../components/ui/button'
+import { Button } from './ui/button'
 import { cn } from '../lib/utils'
 // import { Logo } from './Logo' // Update path if needed
 import { Link } from 'react-router-dom' // Using React Router Link

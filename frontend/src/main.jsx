@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import {store} from '../src/store/globalStore'
+import {store} from './store/globalStore'
 import {Provider} from 'react-redux' // this Provider acts like a wrapper -> iski help se ham <App/> me jitne bhi components hai -> unko store ka access denge
 import {BrowserRouter, createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Carousel from './pages/Carousel'

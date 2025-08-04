@@ -271,7 +271,7 @@ async function extractQRImageFromPDF(pdfPath, password = 'KASH2005') {
             height: Math.floor(viewport.height * 0.28)
         })
         .toBuffer();
-
+        
     const outputPath = path.join('uploads', `qr-${Date.now()}.png`);
     fs.writeFileSync(outputPath, qrBuffer);
 
@@ -285,33 +285,73 @@ async function extractQRImageFromPDF(pdfPath, password = 'KASH2005') {
 const { readFile } = require('fs/promises');
 const { BinaryBitmap, BarcodeFormat, HybridBinarizer, RGBLuminanceSource, DecodeHintType, MultiFormatReader } = require('@zxing/library');
 // ----------------------
+// async function decodeQRCodeFromImage(imagePath) {
+//     try {
+//         // Step 1: Read and preprocess the image
+//         // const imageBuffer = await sharp(imagePath)
+//         //     .resize({ width: 300, height: 300 }) // upscale to readable size
+//         //     .grayscale()
+//         //     .flatten({ background: '#ffffff' }) // remove transparency
+//         //     .toBuffer();
+
+//         const { data, info } = await sharp(imagePath)
+//             .resize(400, 400, { fit: 'cover' })     // force square
+//             .grayscale()
+//             .sharpen()
+//             .normalize()                            // enhance contrast
+//             .raw()
+//             .toBuffer({ resolveWithObject: true });
+
+//         // Step 2: ZXing decode
+//         const luminanceSource = new RGBLuminanceSource(data, info.width, info.height);
+//         const binaryBitmap = new BinaryBitmap(new HybridBinarizer(luminanceSource));
+//         const reader = new MultiFormatReader();
+
+//         reader.setHints(new Map([
+//             [3, [BarcodeFormat.QR_CODE]] // Decode only QR codes
+//         ]));
+
+//         const result = reader.decode(binaryBitmap);
+//         return result.getText();
+//     } catch (err) {
+//         console.error("❌ Error: Failed to decode QR Code:", err.message);
+//         return null;
+//     }
+
+// }
+
 async function decodeQRCodeFromImage(imagePath) {
     try {
-        // Step 1: Read and preprocess the image
-        const imageBuffer = await sharp(imagePath)
-            .resize({ width: 300, height: 300 }) // upscale to readable size
+        // 🔧 Step 1: Enhance image
+        const { data, info } = await sharp(imagePath)
+            .resize({ width: 400, height: 400, fit: 'cover' })  // force square
             .grayscale()
-            .flatten({ background: '#ffffff' }) // remove transparency
-            .toBuffer();
+            .sharpen()
+            .normalize()
+            .threshold(128)  // binarize for clarity
+            .raw()
+            .toBuffer({ resolveWithObject: true });
 
-        const { data, info } = await sharp(imageBuffer).raw().toBuffer({ resolveWithObject: true });
+        await sharp(data, { raw: { width: info.width, height: info.height, channels: 1 } })
+            .toFile("debug-qrcode-enhanced.png");
 
-        // Step 2: ZXing decode
+
+        // 📚 Step 2: Setup ZXing reader
         const luminanceSource = new RGBLuminanceSource(data, info.width, info.height);
         const binaryBitmap = new BinaryBitmap(new HybridBinarizer(luminanceSource));
         const reader = new MultiFormatReader();
 
         reader.setHints(new Map([
-            [3, [BarcodeFormat.QR_CODE]] // Decode only QR codes
+            [DecodeHintType.POSSIBLE_FORMATS, [BarcodeFormat.QR_CODE]],
+            [DecodeHintType.TRY_HARDER, true]
         ]));
 
+        // 🧠 Step 3: Decode
         const result = reader.decode(binaryBitmap);
         return result.getText();
+
     } catch (err) {
         console.error("❌ Error: Failed to decode QR Code:", err.message);
         return null;
     }
-
 }
-
-
